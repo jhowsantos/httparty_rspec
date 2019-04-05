@@ -4,8 +4,9 @@ describe 'fazer uma requisição' do
         #@requisicao = HTTParty.get('https://api-de-tarefas.herokuapp.com/contacts')
         #puts @requisicao
 
-        @requisicao_clean = Contato.get('/contacts')
-        puts @requisicao_clean
+        @response = Contato.get('/contacts')
+        puts "response code: #{@response.code}"
+        puts "response code: #{@response.message}"
     end
 
 

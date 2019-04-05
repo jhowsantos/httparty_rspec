@@ -1,6 +1,6 @@
 describe 'fazer requisicao' do
     it 'delete' do
-       Contato.delete('/contacts/105')
+       Contato.delete('/contacts/648')
     end
 
 end

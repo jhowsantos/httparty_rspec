@@ -1,15 +1,29 @@
 require 'httparty'
 require 'httparty/request'
 require 'httparty/response/headers'
+require 'faker'
+
+@rspec_yml = YAML.load_file("#{Dir.pwd}/support/rspec.yml")
+@ambiente = @rspec_yml['ambiente']
+CONFIG = YAML.load_file("#{Dir.pwd}/support/data/#{@ambiente}.yml")
 
 # referencia da localização do modulo Contato
 require_relative '../services/contatos_service'
+
+# referencia da localização do modulo Criar
+require_relative '../services/criar_service.rb'
 
 HTTParty::Basement.default_options.update(verify: false)
 
 RSpec.configure do |config|
   # incluindo o modulo Contato como global
   include Contato
+
+  # incluindo o modulo Criar como global
+  include Criar
+
+  config.color = true
+  config.formatter = :documentation
 
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
