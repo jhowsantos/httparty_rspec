@@ -7,6 +7,7 @@ describe 'fazer uma requisição' do
         @response = Contato.get('/contacts')
         puts "response code: #{@response.code}"
         puts "response code: #{@response.message}"
+        expect(@response.code).to eq 200
     end
 
 
